@@ -13,7 +13,7 @@ mongoose
   })
   .catch((err) => {
     console.log("Error while connecting to MongoDB");
-    console.error(err);
+    console.log(err);
   });
 
 mongoose.set("useCreateIndex", true);
