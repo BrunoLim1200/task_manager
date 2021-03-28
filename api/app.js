@@ -69,9 +69,14 @@ app.get("/lists/:listId/tasks", (req, res) => {
   //we want to return all tasks that belong to a specific list
   Task.find({
     _listId: req.params.listId,
-  }).then((tasks) => {
-    res.send(tasks);
-  });
+  })
+    .then((tasks) => {
+      res.send(tasks);
+    })
+    .catch((err) => {
+      console.log("MongoDB error:");
+      console.error(err);
+    });
 });
 
 app.get("/lists/:listId/tasks/:taskId", (req, res) => {
